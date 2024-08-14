@@ -45,6 +45,7 @@ public class ClinicServiceController {
     }
 
     @GetMapping("/available")
+    //@CrossOrigin("localhost:4040")
     public ResponseEntity<List<ServiceEntity>> getAvailable(){
         return ResponseEntity.ok(this.clinicService.getAvailable());
     }

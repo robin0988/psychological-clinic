@@ -5,6 +5,7 @@ import com.phyclinic.clinic.persistence.projection.InvoiceSummary;
 import com.phyclinic.clinic.persistence.repository.InvoiceRepository;
 import com.phyclinic.clinic.service.dto.RandomClinicServiceDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,6 +44,7 @@ public class InvoiceService {
         return this.invoiceRepository.findAllByMethodIn(methods);
 
     }
+    @Secured("ROLE_ADMIN")
     public List<InvoiceEntity> getPatientInvoice(int patientId){
         return  this.invoiceRepository.findPatientInvoice(patientId);
     }
